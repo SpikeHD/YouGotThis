@@ -1,6 +1,11 @@
 const sql = require('../helpers/mysql')
 
 module.exports = class Goal {
+  /**
+   * Class for holding information on a goal
+   * 
+   * @param {Number|String} id 
+   */
   constructor(id) {
     this.id = id
 

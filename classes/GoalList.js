@@ -1,11 +1,19 @@
 const sql = require('../helpers/mysql')
 
 module.exports = class GoalList {
+  /**
+   * Class for holding a list of goals held by a user
+   * 
+   * @param {Number|String} userid 
+   */
   constructor(userid) {
     this.userid = userid
     this.items = []
   }
 
+  /**
+   * Grabs the list of goals for a user
+   */
   async get() {
     if (!this.userid) throw new Error('No userid for goal list!')
 
@@ -15,6 +23,11 @@ module.exports = class GoalList {
     return this
   }
 
+  /**
+   * Searches through the list of goals
+   * 
+   * @param {String} q 
+   */
   search(q) {
     if (this.items.length === 0) throw new Error('No items in goal list!')
     
