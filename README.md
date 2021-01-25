@@ -9,7 +9,7 @@ A Discord bot for tracking personal goals.
 # TODO
 
 - [x] Adding goals
-- [ ] Viewing goals (list and individual)
+- [x] Viewing goals (list and individual)
 - [x] Removing goals
 - [ ] Modifying goals (name, updateframe, resetting streak 😔)
 - [ ] Automatic updates on goals based on updateframe
