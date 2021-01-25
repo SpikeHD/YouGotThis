@@ -104,4 +104,5 @@ dist
 .tern-port
 
 # Important stuff
+yarn.lock
 config.json
