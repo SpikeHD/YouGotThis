@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const fs = require('fs')
 const { token, prefix } = require('./config.json')
+const goalWatcher = require('./helpers/goalWatcher')
 
 bot.commands = new Discord.Collection()
 bot.login(token)
@@ -15,7 +16,9 @@ bot.on('ready', () => {
     bot.commands.set(command.replace('.js', ''), props)
   })
 
-  bot.user.setActivity(`Use ${prefix}help!`, { type: 'PLAYING' })
+  bot.user.setActivity(`${prefix}help!`, { type: 'WATCHING' })
+
+  goalWatcher()
 
   console.log('YouGotThis is up and running!')
 })
