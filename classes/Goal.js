@@ -14,6 +14,7 @@ module.exports = class Goal {
     this.name = ''
     this.start = 0
     this.every = ''
+    this.private = false
   }
 
   /**
