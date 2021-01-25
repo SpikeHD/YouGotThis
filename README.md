@@ -9,8 +9,9 @@ A Discord bot for tracking personal goals.
 # TODO
 
 - [x] Adding goals
+- [ ] Viewing goals (list and individual)
 - [ ] Removing goals
-- [ ] Modifying goals (name, updateframe)
+- [ ] Modifying goals (name, updateframe, resetting streak :( )
 - [ ] Automatic updates on goals based on updateframe
 - [ ] Private/public goals
 - [ ] Seeing goals of others (only public)

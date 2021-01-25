@@ -17,10 +17,24 @@ module.exports = class GoalList {
   async get() {
     if (!this.userid) throw new Error('No userid for goal list!')
 
-    const rows = await sql.query('SELECT * FROM goals WHERE userid = ?', [this.userid])
-    this.items = rows
+    const rows = await sql.promise().query('SELECT * FROM goals WHERE userid = ?', [this.userid])
+    this.items = rows[0]
 
     return this
+  }
+
+  /**
+   * Get only private goals
+   */
+  getPrivate() {
+    return this.items.filter(g => g.private)
+  }
+
+  /**
+   * Get only public goals 
+   */
+  getPublic() {
+    return this.items.filter(g => !g.private)
   }
 
   /**

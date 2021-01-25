@@ -4,7 +4,7 @@ const Goal = require('../classes/Goal')
 const { timeParser } = require('../helpers/util')
 
 module.exports.info = {
-  usage: 'add "[name]" [updateframe | examples: "1d", "6mo", "1y"]'
+  usage: 'add "[name]" [updateframe | examples: "1d", "6mo", "1y"] [visibility | private/public]'
 }
 
 module.exports.run = async (bot, message, args) => {
@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
   // New goal to push data into
   const goal = new Goal()
   goal.start = Date.now()
+  goal.userid = message.author.id
 
   // Attempt to parse name
   try {
@@ -25,9 +26,17 @@ module.exports.run = async (bot, message, args) => {
     return
   }
 
-  goal.every = args[args.length-1]
+  goal.every = args.join(' ').split('"')[2].split(' ')[1]
+  goal.private = args.join(' ').split('"')[2].split(' ')[1] === 'private'
 
-  embed.addField(`"${goal.name}"`, `Updates ${timeParser(goal.every).every}.`)
+  // Error with time parser? Args must be incorrect
+  try {
+    embed.addField(`"${goal.name}"`, `Updates ${timeParser(goal.every).every}.`)
+  } catch(e) {
+    console.error(e)
+    message.channel.send('There was an error in your command. Did you remember to provide an updateframe?')
+    return
+  }
 
   // Push everything to the database
   try {

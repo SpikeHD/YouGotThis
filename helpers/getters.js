@@ -6,5 +6,5 @@ module.exports.getGoal = async (id) => {
 }
 
 module.exports.getGoalList = async (userid) => {
-  return await new GoalList(userid).get()
+  return  await new GoalList(userid).get()
 }

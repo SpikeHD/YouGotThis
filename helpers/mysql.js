@@ -1,7 +1,6 @@
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const { sql } = require('../config.json')
 const con = mysql.createConnection({
-  connectionLimit: 10,
   host: sql.host,
   user: sql.user,
   password: sql.pass,
