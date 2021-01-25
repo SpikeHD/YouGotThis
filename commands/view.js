@@ -2,6 +2,12 @@ const ms = require('ms')
 const { getGoal } = require('../helpers/getters')
 const { MessageEmbed } = require('discord.js')
 
+module.exports.info = {
+  name: 'view',
+  usage: 'view [id]',
+  description: 'View details of a goal. You can only view your own goals, or others\' public goals.'
+}
+
 module.exports.run = async (bot, message, args) => {
   const embed = new MessageEmbed()
     .setColor('BLUE')

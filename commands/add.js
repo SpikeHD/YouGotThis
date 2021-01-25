@@ -4,7 +4,9 @@ const Goal = require('../classes/Goal')
 const { timeParser } = require('../helpers/util')
 
 module.exports.info = {
-  usage: 'add "[name]" [updateframe | examples: "1d", "6mo", "1y"] [visibility | private/public]'
+  name: 'add',
+  usage: 'add "[name]" [updateframe | examples: "1d", "6mo", "1y"] [visibility | private/public]',
+  description: 'Add a new goal to your list!'
 }
 
 module.exports.run = async (bot, message, args) => {

@@ -3,7 +3,9 @@ const ms = require('ms')
 const { getGoalList } = require('../helpers/getters')
 
 module.exports.info = {
-  usage: 'goals [(optional) visibility | public/private/all]'
+  name: 'goals',
+  usage: 'goals [(optional) visibility | public/private/all]',
+  description: 'View your goal list! Don\'t worry, private ones won\'t show up unless you want them to.'
 }
 
 module.exports.run = async (bot, message, args) => {
@@ -13,10 +15,22 @@ module.exports.run = async (bot, message, args) => {
     .setColor('BLUE')
 
   const list = await getGoalList(message.author.id)
-  let goals = list.items
+  let goals = list.getPublic()
 
   if (args[1]) {
-    goals = args[1] === 'public' ? list.getPublic() : list.getPrivate()
+    switch(args[1].toLowerCase()) {
+      default:
+      case 'public':
+        break
+
+      case 'private':
+        goals = list.getPrivate()
+        break
+
+      case 'all':
+        goals = list.items
+        break
+    }
   }
 
   if (goals && goals.length > 0) {
