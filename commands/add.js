@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
   const goal = new Goal()
   goal.start = Date.now()
 
+  // Attempt to parse name
   try {
     goal.name = args.join(' ').split('"')[1].split('"')[0]
   } catch(e) {
@@ -28,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
   embed.addField(`"${goal.name}"`, `Updates ${timeParser(goal.every).every}.`)
 
+  // Push everything to the database
   try {
     await goal.set()
   } catch(e) {

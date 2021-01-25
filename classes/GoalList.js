@@ -18,6 +18,7 @@ module.exports = class GoalList {
   search(q) {
     if (this.items.length === 0) throw new Error('No items in goal list!')
     
+    // No idea if I will actually use this anywhere yet
     return this.items.filter(i => i.name.toLowerCase().includes(q.toLowerCase()) || i.description.toLowerCase().includes(q.toLowerCase()))
   }
 }

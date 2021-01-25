@@ -29,6 +29,7 @@ module.exports = class Goal {
       this.lastChecked
     ])
 
+    // TODO self-assign the ID of the row in case of insert
     return res
   }
 
@@ -40,6 +41,7 @@ module.exports = class Goal {
 
     const rows = sql.query('SELECT * FROM goals WHERE id=? LIMIT 1', [this.id])
     
+    // Since the class properties match the table columns, we can cheat
     Object.keys(rows).forEach(k => {
       this[k] = rows[k]
     })
