@@ -14,3 +14,5 @@ A Discord bot for tracking personal goals.
 - [ ] Automatic updates on goals based on updateframe
 - [ ] Private/public goals
 - [ ] Seeing goals of others (only public)
+
+*Note to self: [this](https://old.reddit.com/r/Discord_Bots/comments/l4eooh/looking_for_a_bot_to_keep_track_of_habitspersonal/gkoptn1/)*
