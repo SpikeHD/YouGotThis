@@ -1,0 +1,14 @@
+{
+  "name": "YouGotThis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SpikeHD/YouGotThis.git",
+  "author": "spikegd <spikegdofficial@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}
