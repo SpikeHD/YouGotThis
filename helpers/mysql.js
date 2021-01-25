@@ -1,11 +1,11 @@
 const mysql = require('mysql')
 const { sql } = require('../config.json')
-const pool = mysql.createPool({
+const con = mysql.createConnection({
   connectionLimit: 10,
   host: sql.host,
   user: sql.user,
   password: sql.pass,
-  database: sql.database
+  database: sql.db
 })
 
-module.exports = pool
+module.exports = con

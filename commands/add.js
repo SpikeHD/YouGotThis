@@ -7,7 +7,7 @@ module.exports.info = {
   usage: 'add "[name]" [updateframe | examples: "1d", "6mo", "1y"]'
 }
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
   const embed = new MessageEmbed()
     .setTitle(`New goal for ${message.member.displayName}!`)
     .setAuthor(message.member.displayName, message.author.avatarURL())
@@ -28,7 +28,13 @@ module.exports.run = (bot, message, args) => {
 
   embed.addField(`"${goal.name}"`, `Updates ${timeParser(goal.every).every}.`)
 
-  goal.set()
+  try {
+    await goal.set()
+  } catch(e) {
+    console.error(e)
+    message.channel.send('There was an error processing your goal.')
+    return
+  }
 
   message.channel.send(embed)
 }
