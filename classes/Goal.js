@@ -20,7 +20,7 @@ module.exports = class Goal {
    * Used for creating or updating a Goal
    */
   async set() {
-    const res = await sql.promise().query(`INSERT INTO goals (userid, name, start, every, lastChecked, private) VALUES (?, ?, ?, ?, ?)
+    const res = await sql.promise().query(`INSERT INTO goals (userid, name, start, every, private) VALUES (?, ?, ?, ?, ?)
     ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
       this.userid,
       this.name,
