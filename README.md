@@ -11,7 +11,7 @@ A Discord bot for tracking personal goals.
 - [x] Adding goals
 - [ ] Viewing goals (list and individual)
 - [ ] Removing goals
-- [ ] Modifying goals (name, updateframe, resetting streak :( )
+- [ ] Modifying goals (name, updateframe, resetting streak 😔)
 - [ ] Automatic updates on goals based on updateframe
 - [ ] Private/public goals
 - [ ] Seeing goals of others (only public)
