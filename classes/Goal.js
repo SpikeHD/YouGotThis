@@ -14,27 +14,24 @@ module.exports = class Goal {
     this.name = ''
     this.start = 0
     this.every = ''
-    this.lastChecked = Date.now()
   }
 
   /**
    * Used for creating or updating a Goal
    */
   async set() {
-    const res = await sql.promise().query(`INSERT INTO goals (userid, name, start, every, lastChecked, private) VALUES (?, ?, ?, ?, ?, ?)
-    ON DUPLICATE KEY UPDATE name=?, start=?, every=?, lastChecked=?, private=?`, [
+    const res = await sql.promise().query(`INSERT INTO goals (userid, name, start, every, lastChecked, private) VALUES (?, ?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
       this.userid,
       this.name,
       this.start,
       this.every,
-      this.lastChecked,
       this.private,
 
       // For update
       this.name,
       this.start,
       this.every,
-      this.lastChecked,
       this.private
     ])
 

@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
   if (goals && goals.length > 0) {
     goals.forEach(g => {
-      embed.addField(`(ID #${g.id}) ${g.name}`, `Progress: ${ms(g.lastChecked - g.start, { long: true })}`)
+      embed.addField(`(ID #${g.id}) ${g.name}`, `Progress: ${ms(Date.now() - g.start, { long: true })}`)
     })
   } else {
     embed.setDescription('You have no goals to display!')
