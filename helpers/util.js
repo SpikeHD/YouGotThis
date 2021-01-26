@@ -48,3 +48,10 @@ module.exports.timeParser = (timeframe) => {
 
   return obj
 }
+
+/**
+ * Capitalize first letter of string
+ * 
+ * @param {String} s 
+ */
+module.exports.cap = (s) => s.toUpperCase() + s.substr(1)

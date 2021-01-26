@@ -18,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
   let goals = list.getPublic()
 
   if (args[1]) {
+    /* eslint-disable indent */
     switch(args[1].toLowerCase()) {
       default:
       case 'public':

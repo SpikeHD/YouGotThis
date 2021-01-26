@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const { prefix } = require('../config.json')
+const { cap } = require('../helpers/util')
 
 module.exports.info = {
   name: 'help',
@@ -15,10 +16,10 @@ module.exports.run = (bot, message, args) => {
   bot.commands.forEach(c => {
     const info = c.info
 
-    embed.addField(info.name[0].toUpperCase() + info.name.substr(1), `Description: ${info.description}\nUsage: \`${prefix + info.usage}\``)
+    embed.addField(cap(info.name), `Description: ${info.description}\nUsage: \`${prefix + info.usage}\``)
   })
 
-  embed.setFooter(`Other useful links: Nothing here yet!`)
+  embed.setFooter('Other useful links: Nothing here yet!')
 
   message.channel.send(embed)
 }
