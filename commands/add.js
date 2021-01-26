@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   goal.every = args.join(' ').split('"')[2].split(' ')[1]
-  goal.private = args.join(' ').split('"')[2].split(' ')[1] === 'private'
+  goal.private = args.join(' ').split('"')[2].split(' ')[2] === 'private'
 
   // Error with time parser? Args must be incorrect
   try {

@@ -8,7 +8,7 @@ module.exports.info = {
   description: 'Get a list of commmands and other useful stuff.'
 }
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = (bot, message) => {
   const embed = new MessageEmbed()
     .setTitle('Help & Information')
     .setColor('ORANGE')
