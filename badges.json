@@ -1,0 +1,22 @@
+{
+  "1 day": {
+    "title":"First Day",
+    "image":"assets/first_day.png"
+  },
+  "7 days": {
+    "title":"First Week",
+    "image":"assets/first_week.png"
+  },
+  "1 month": {
+    "title": "First Month",
+    "image": "assets/first_month.png"
+  },
+  "6 months": {
+    "title": "Half a Year",
+    "image": "assets/half_year.png"
+  },
+  "1 year": {
+    "title": "One Year",
+    "image": "assets/one_year.png"
+  }
+}

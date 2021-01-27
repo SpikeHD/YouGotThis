@@ -18,7 +18,7 @@ bot.on('ready', () => {
 
   bot.user.setActivity(`${prefix}help!`, { type: 'WATCHING' })
 
-  goalWatcher()
+  goalWatcher(bot)
 
   console.log('YouGotThis is up and running!')
 })
