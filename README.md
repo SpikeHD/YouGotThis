@@ -1,6 +1,8 @@
 # YouGotThis
 A Discord bot for tracking personal goals.
 
+[Invite link](https://discord.com/api/oauth2/authorize?client_id=805596848374022185&permissions=68608&scope=bot)
+
 # Setup
 
 - `npm install`
@@ -21,3 +23,7 @@ A Discord bot for tracking personal goals.
 - [ ] Different goal types (eg. complete within X time, or by X date)
 
 *Note to self: [this](https://old.reddit.com/r/Discord_Bots/comments/l4eooh/looking_for_a_bot_to_keep_track_of_habitspersonal/gkoptn1/)*
+
+# Notes
+
+Updateframe currently doesn't actually do anything.
