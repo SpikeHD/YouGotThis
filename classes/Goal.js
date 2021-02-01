@@ -22,7 +22,8 @@ module.exports = class Goal {
    */
   async set() {
     const res = await sql.promise().query(`INSERT INTO goals (id, userid, name, start, every, private)
-    VALUES (${this.id || '(SELECT SUM(t.id+1) FROM (SELECT MAX(id) as id FROM goals) AS t ORDER BY t.id DESC LIMIT 1)'}, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
+    VALUES (${this.id || '(SELECT SUM(t.id+1) FROM (SELECT MAX(id) as id FROM goals) AS t ORDER BY t.id DESC LIMIT 1)'}, ?, ?, ?, ?, ?) 
+    ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
       this.userid,
       this.name,
       this.start,
