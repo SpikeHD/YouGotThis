@@ -1,6 +1,7 @@
 
 const { MessageEmbed } = require('discord.js')
 const Goal = require('../classes/Goal')
+const { getGoalList } = require('../helpers/getters')
 const { timeParser } = require('../helpers/util')
 
 module.exports.info = {
@@ -14,6 +15,11 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`New goal for ${message.member.displayName}!`)
     .setAuthor(message.member.displayName, message.author.avatarURL())
     .setColor('GREEN')
+
+  // Goal list for checking amount
+  const goalList = await getGoalList(message.author.id)
+
+  if (goalList.items.length > 20) return message.channel.send('You cannot add any more goals! For now, 20 is the limit.')
 
   // New goal to push data into
   const goal = new Goal()
