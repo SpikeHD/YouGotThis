@@ -21,8 +21,8 @@ module.exports = class Goal {
    * Used for creating or updating a Goal
    */
   async set() {
-    const res = await sql.promise().query(`INSERT INTO goals (userid, name, start, every, private) VALUES (?, ?, ?, ?, ?)
-    ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
+    const res = await sql.promise().query(`INSERT INTO goals (id, userid, name, start, every, private)
+    VALUES (${this.id || '(SELECT SUM(t.id+1) FROM (SELECT MAX(id) as id FROM goals) AS t ORDER BY t.id DESC LIMIT 1)'}, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=?, start=?, every=?, private=?`, [
       this.userid,
       this.name,
       this.start,
@@ -33,10 +33,9 @@ module.exports = class Goal {
       this.name,
       this.start,
       this.every,
-      this.private
+      this.private,
     ])
 
-    // TODO self-assign the ID of the row in case of insert
     return res[0]
   }
 

@@ -23,13 +23,12 @@ module.exports.run = async (bot, message, args) => {
   // Attempt to parse name
   try {
     goal.name = args.join(' ').split('"')[1].split('"')[0]
+    goal.every = args.join(' ').split('"')[2].split(' ')[1]
+    goal.private = args.join(' ').split('"')[2].split(' ')[2] === 'private'
   } catch(e) {
     message.channel.send('Looks like you didn\'t format your goal\'s name correctly! Don\'t forget the closing quotation mark!')
     return
   }
-
-  goal.every = args.join(' ').split('"')[2].split(' ')[1]
-  goal.private = args.join(' ').split('"')[2].split(' ')[2] === 'private'
 
   // Error with time parser? Args must be incorrect
   try {

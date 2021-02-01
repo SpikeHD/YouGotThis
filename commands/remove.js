@@ -4,7 +4,7 @@ const { MessageCollector } = require('discord.js')
 module.exports.info = {
   name: 'remove',
   usage: 'remove [id]',
-  description: 'Remove a goal. you will be asked for confirmation, and you can only remove your own goals.'
+  description: 'Remove a goal. You will be asked for confirmation, and you can only remove your own goals.'
 }
 
 module.exports.run = async (bot, message, args) => {

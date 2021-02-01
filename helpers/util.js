@@ -36,7 +36,7 @@ module.exports.timeParser = (timeframe) => {
       break
 
     default:
-      obj.unit = 'day'
+      obj.unit = 'invalid'
       break
   }
 
@@ -54,4 +54,4 @@ module.exports.timeParser = (timeframe) => {
  * 
  * @param {String} s 
  */
-module.exports.cap = (s) => s.toUpperCase() + s.substr(1)
+module.exports.cap = (s) => s.toUpperCase()[0] + s.substr(1)
